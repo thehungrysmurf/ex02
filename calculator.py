@@ -40,7 +40,12 @@ separated by a single space: ")
     elif user_input_list[0] == "-":
         print arithmetic.subtract(int(user_input_list[1]), int(user_input_list[2]))
     elif user_input_list[0] == "/":
-        print arithmetic.divide(int(user_input_list[1]), int(user_input_list[2]))
+        divide_list = turn_to_int(user_input_list)
+        divide = divide_list[0]
+        for i in divide_list[1: len(divide_list)]:
+            divide = divide / i
+        print divide 
+        # print arithmetic.divide(int(user_input_list[1]), int(user_input_list[2]))
     elif user_input_list[0] == "*":
         product_list = turn_to_int(user_input_list)
         for i in product_list:
