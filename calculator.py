@@ -15,7 +15,7 @@ def main():
 separated by a single space: ")
 
     user_input_list = user_input.split(' ')
-    # print user_input_list
+    #print user_input_list[0]
 
     if user_input_list[0] == "":
         del(user_input_list[0]) 
