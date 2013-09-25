@@ -8,6 +8,12 @@ import arithmetic
 # call the math function on the input
 # print output
 
+def turn_to_int(list):
+    list2 = list[1: len(list)]
+    for i in range(len(list2)):
+        list2[i] = int(list2[i])
+    return list2
+
 def main():
     print "Welcome to the calculator."
 
@@ -24,17 +30,22 @@ separated by a single space: ")
         print "I'm quitting."
         exit(0)
 
+    product = 1
+
     if user_input_list[0] not in ["+", "-", "/", "*", "mod", "square", "pow", "cube"]:
         print "I don't understand. Please use the format specified above."
 
-    elif user_input_list[0] == "+":
-        print arithmetic.add(int(user_input_list[1]), int(user_input_list[2]))
+    elif user_input_list[0] == "+": 
+        print sum(turn_to_int(user_input_list))
     elif user_input_list[0] == "-":
         print arithmetic.subtract(int(user_input_list[1]), int(user_input_list[2]))
     elif user_input_list[0] == "/":
         print arithmetic.divide(int(user_input_list[1]), int(user_input_list[2]))
     elif user_input_list[0] == "*":
-        print arithmetic.multiply(int(user_input_list[1]), int(user_input_list[2]))
+        product_list = turn_to_int(user_input_list)
+        for i in product_list:
+            product = product * i
+        print product 
     elif user_input_list[0] == "mod":
         print arithmetic.mod(int(user_input_list[1]), int(user_input_list[2]))
     elif user_input_list[0] == "square":
